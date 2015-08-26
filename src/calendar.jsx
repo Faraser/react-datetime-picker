@@ -85,7 +85,7 @@ var Calendar = React.createClass({
                     nextMonth={this.handleNextMonth}
                     prevMonth={this.handlePrevMonth}
                     />
-                <table className="cal-header">
+                <table className="cal-table">
 
                     <tr>{cal_days_labels.map(function (item) {
                         return (<th>{item}</th>)
