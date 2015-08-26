@@ -1,7 +1,4 @@
 var React = require('react/addons');
-var Reflux = require('reflux');
-var TodoActions = require('./actions');
-var TodoStore = require('./storage');
 var Calendar = require('./calendar');
 
 var DatePicker = React.createClass({
@@ -46,7 +43,7 @@ var DatePicker = React.createClass({
                     value={this.state.date}
                     />
 
-                <div className={this.state.active ? 'picker': 'hide'}>
+                <div className={this.state.active ? 'active picker': 'picker'}>
                     <Calendar setDate={this.setDate}/>
                 </div>
             </div>

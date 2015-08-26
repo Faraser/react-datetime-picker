@@ -1,6 +1,5 @@
 var React = require('react');
 var _ = require('underscore');
-window._ = _;
 
 var cal_days_labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 var cal_months_labels = ['January', 'February', 'March', 'April',
@@ -65,7 +64,6 @@ var Calendar = React.createClass({
     render: function () {
         var month = this.state.currentDate.getMonth();
         var year = this.state.currentDate.getYear();
-        //var startDay = this.state.currentDate.getDay();
         var startDay = new Date(this.state.currentDate.getFullYear(), this.state.currentDate.getMonth(), 1);
         startDay = startDay.getDay();
         var monthLength = cal_days_in_month[month];

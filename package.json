@@ -8,19 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Faraser/reactRefluxTodo.git"
+    "url": "git+https://github.com/Faraser/react-datepicker.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Faraser/reactRefluxTodo/issues"
+    "url": "https://github.com/Faraser/react-datepicker/issues"
   },
-  "homepage": "https://github.com/Faraser/reactRefluxTodo#readme",
+  "homepage": "https://github.com/Faraser/react-datepicker#readme",
   "devDependencies": {
     "css-loader": "^0.16.0",
     "jsx-loader": "^0.13.2",
     "react": "^0.13.3",
-    "reflux": "^0.2.12",
     "style-loader": "^0.12.3",
     "underscore": "^1.8.3",
     "webpack": "^1.11.0",
