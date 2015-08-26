@@ -28,10 +28,14 @@ body {
 	position: absolute;
 	width: 240px;
 	min-height: 125px;
-	color: rgb(66, 149, 219);
+	color: #4295DB;
 	background: #ffffff;
-	padding: 10px;
+	padding: 10px 5px 0 5px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+	0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
+
+
 
 .picker td.full:hover {
 	cursor: pointer;
@@ -68,15 +72,13 @@ button.cal-btn {
 
 
 .cal-btn {
-	/*display: none;*/
 	position: absolute;
-	top: 8px;
-	right: 10px;
+	top: -2px;
+	right: 20px;
 	bottom: 0;
 	width: 20px;
 	height: 20px;
 	margin: auto 0;
-	/*font-size: 30px;*/
 	font-size: 16px;
 	color: #cc9a9a;
 	margin-bottom: 11px;
@@ -87,15 +89,27 @@ button.cal-btn {
 .cal-btn:after {
 	content: '❯';
 	font-size: 16px;
+	position: absolute;
+	min-height: 30px;
+	min-width: 30px;
+}
+.cal-btn:hover:after {
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="-10 -18 100 135"><circle cx="40" cy="40" r="40" fill="#2887D9" stroke="#2887D9" stroke-width="3"/></svg>') -3px -3px no-repeat;
+	color: #ffffff
 }
 
 .prev {
-	left: 10px;
+	left: -10px;
 	right: 0;
+
 }
 .prev:after {
 	 content: "❮";
+
  }
+.prev:hover:after {
+	background-position: -2px -3px;
+}
 
 .cal-table {
 	text-align: center;
