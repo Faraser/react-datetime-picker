@@ -2,7 +2,7 @@ var React = require('react/addons');
 var Reflux = require('reflux');
 var TodoActions = require('./actions');
 var TodoStore = require('./storage');
-var Calendar = require('./calendar')
+var Calendar = require('./calendar');
 
 var DatePicker = React.createClass({
     getInitialState: function () {

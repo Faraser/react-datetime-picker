@@ -87,7 +87,7 @@ var Calendar = React.createClass({
                     nextMonth={this.handleNextMonth}
                     prevMonth={this.handlePrevMonth}
                     />
-                <table>
+                <table className="cal-header">
 
                     <tr>{cal_days_labels.map(function (item) {
                         return (<th>{item}</th>)
@@ -119,11 +119,11 @@ var Calendar = React.createClass({
 var Header = React.createClass({
     render: function () {
         return (
-            <div>
-                <button onClick={this.props.prevMonth}>prev</button>
+            <div className="cal-header">
+                <button className="cal-btn prev" onClick={this.props.prevMonth}></button>
                 {this.props.month + " "}
                 {this.props.year + 1900}
-                <button onClick={this.props.nextMonth}>next</button>
+                <button className="cal-btn next" onClick={this.props.nextMonth}></button>
             </div>
         )
     }
