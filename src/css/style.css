@@ -30,12 +30,12 @@
     text-align: center;
 }
 
-.cal-table td.full:hover {
+.cal-table .full:hover {
     cursor: pointer;
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="-10 -18 100 135"><circle cx="40" cy="40" r="45" fill="none" stroke="#2887D9" stroke-width="3"/></svg>') -1px 0;
 }
 
-.cal-table td.full {
+.cal-table .full {
     min-width: 30px;
     height: 30px;
     color: #5F676A;
@@ -65,10 +65,6 @@
     -moz-font-smoothing: antialiased;
     transition: color 0.2s ease-out;
     cursor: pointer;
-}
-
-.cal-btn:focus {
-    outline: none;
 }
 
 .cal-btn:after {
