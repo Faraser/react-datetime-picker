@@ -8,9 +8,7 @@ var cal_months_labels = ['January', 'February', 'March', 'April',
 var cal_days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 
-
-
-function getFirstWeek(startDay) {
+function generateFirstWeek(startDay) {
     if (startDay === 0) {
         return [0, 0, 0, 0, 0, 0, 1]
     }
@@ -20,18 +18,15 @@ function getFirstWeek(startDay) {
 }
 
 function generateMatrix(startDay, monthLength) {
-    var firstWeek = getFirstWeek(startDay);
-    var lastDayfirstWeek = firstWeek[firstWeek.length -1];
-    var month = _.map(_.range(lastDayfirstWeek, monthLength, 7),
+    var firstWeek = generateFirstWeek(startDay);
+    var lastDayfirstWeek = firstWeek[firstWeek.length - 1] + 1;
+    var month = _.map(_.range(lastDayfirstWeek, monthLength + 1, 7),
         function (i) {
             var end = (i + 7 > monthLength + 1) ? monthLength + 1 : i + 7;
             return _.range(i, end)
         });
-    month.unshift(firstWeek);
-    return month
+    return [firstWeek].concat(month)
 }
-
-
 
 
 var Calendar = React.createClass({
