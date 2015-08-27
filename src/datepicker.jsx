@@ -35,15 +35,16 @@ var DatePicker = React.createClass({
     },
     render: function () {
         return (
-            <div >
+            <div className="datetime">
                 <input
                     type="text"
                     onFocus={this.showPopup}
                     onBlur={this.hidePopup}
                     value={this.state.date}
+                    className="datetime__input"
                     />
 
-                <div className={this.state.active ? 'active picker': 'picker'}>
+                <div className={this.state.active ? 'datetime__cal datetime__cal--active': 'datetime__cal'}>
                     <Calendar setDate={this.setDate}/>
                 </div>
             </div>

@@ -23,7 +23,6 @@ function getFirstWeek(a) {
 
 
 function generateMatrix(startDay, monthLength) {
-    console.log('start', startDay);
     var res = [];
     res.push(getFirstWeek(startDay));
 
@@ -32,7 +31,6 @@ function generateMatrix(startDay, monthLength) {
         if (week > 0) {
             res.push([])
         }
-        console.log('week', res[week]);
         while (res[week].length < 7 && days.length > 0) {
             res[week].push(days.shift())
         }
@@ -85,25 +83,25 @@ var Calendar = React.createClass({
                     nextMonth={this.handleNextMonth}
                     prevMonth={this.handlePrevMonth}
                     />
-                <table className="cal-table">
+                <table className="datetime__table">
 
-                    <tr>{cal_days_labels.map(function (item) {
-                        return (<th>{item}</th>)
+                    <tr>{cal_days_labels.map(function (item, i) {
+                        return (<th key={i}>{item}</th>)
                     })}</tr>
                     <tr>
-                        {matrix.map(function (item) {
-                            console.log(item);
-                            return <tr>
-                                {item.map(function (el) {
+                        {matrix.map(function (item, index) {
+                            return <tr key={index}>
+                                {item.map(function (el, i) {
 
                                     if (el === 0) {
-                                        return <td className="empty"></td>
+                                        return <td className="empty" key={i}></td>
                                     }
                                     return (
                                         <DateItem
                                             item={el}
                                             setDate={setDate}
                                             curDate={currentDate}
+                                            key={i}
                                             />)
                                 })}</tr>
                         })}
@@ -117,11 +115,11 @@ var Calendar = React.createClass({
 var Header = React.createClass({
     render: function () {
         return (
-            <div className="cal-header">
-                <button className="cal-btn prev" onClick={this.props.prevMonth}></button>
+            <div className="datetime__header">
+                <button className="datetime__btn datetime__btn--prev" onClick={this.props.prevMonth}></button>
                 {this.props.month + " "}
                 {this.props.year + 1900}
-                <button className="cal-btn next" onClick={this.props.nextMonth}></button>
+                <button className="datetime__btn" onClick={this.props.nextMonth}></button>
             </div>
         )
     }

@@ -1,4 +1,4 @@
-.picker {
+.datetime__cal {
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 300;
     line-height: 1.4em;
@@ -19,33 +19,33 @@
     transition: opacity 0.5s ease 0s;
 }
 
-.active {
+.datetime__cal--active {
     overflow: visible;
     height: auto;
     opacity: 1;
     padding: 10px 5px 0 5px;
 }
 
-.cal-table {
+.datetime__table {
     text-align: center;
 }
 
-.cal-table .full:hover {
+.datetime__table .full:hover {
     cursor: pointer;
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="-10 -18 100 135"><circle cx="40" cy="40" r="45" fill="none" stroke="#2887D9" stroke-width="3"/></svg>') -1px 0;
 }
 
-.cal-table .full {
+.datetime__table .full {
     min-width: 30px;
     height: 30px;
     color: #5F676A;
 }
 
-.cal-header {
+.datetime__header {
     text-align: center;
 }
 
-.cal-btn {
+.datetime__btn {
     position: absolute;
     margin: 0;
     padding: 0;
@@ -67,7 +67,11 @@
     cursor: pointer;
 }
 
-.cal-btn:after {
+.datetime__btn:focus {
+	outline: none;
+}
+
+.datetime__btn:after {
     content: '❯';
     font-size: 16px;
     position: absolute;
@@ -75,21 +79,21 @@
     min-width: 30px;
 }
 
-.cal-btn:hover:after {
+.datetime__btn:hover:after {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="-10 -18 100 135"><circle cx="40" cy="40" r="40" fill="#2887D9" stroke="#2887D9" stroke-width="3"/></svg>') -3px -3px no-repeat;
     color: #ffffff
 }
 
-.prev {
+.datetime__btn--prev {
     left: -10px;
     right: 0;
 }
 
-.prev:after {
+.datetime__btn--prev:after {
     content: "❮";
 }
 
-.prev:hover:after {
+.datetime__btn--prev:hover:after {
     background-position: -2px -3px;
 }
 
