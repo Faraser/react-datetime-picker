@@ -1,6 +1,6 @@
 var React = require('react');
 var _ = require('underscore');
-window._ = _;
+
 var cal_days_labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 var cal_months_labels = ['January', 'February', 'March', 'April',
     'May', 'June', 'July', 'August', 'September',
@@ -12,9 +12,7 @@ function generateFirstWeek(startDay) {
     if (startDay === 0) {
         return [0, 0, 0, 0, 0, 0, 1]
     }
-    return (_.times(startDay - 1, function () {
-        return 0
-    })).concat(_.range(1, 8 - startDay + 1));
+    return (_.times(startDay - 1, _.constant(0))).concat(_.range(1, 8 - startDay + 1));
 }
 
 function generateMatrix(startDay, monthLength) {
