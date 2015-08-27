@@ -19,8 +19,8 @@ function generateFirstWeek(startDay) {
 
 function generateMatrix(startDay, monthLength) {
     var firstWeek = generateFirstWeek(startDay);
-    var lastDayfirstWeek = firstWeek[firstWeek.length - 1] + 1;
-    var month = _.map(_.range(lastDayfirstWeek, monthLength + 1, 7),
+    var lastDayFirstWeek = _.last(firstWeek) + 1;
+    var month = _.map(_.range(lastDayFirstWeek, monthLength + 1, 7),
         function (i) {
             var end = (i + 7 > monthLength + 1) ? monthLength + 1 : i + 7;
             return _.range(i, end)
