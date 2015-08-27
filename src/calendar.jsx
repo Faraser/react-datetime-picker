@@ -8,32 +8,30 @@ var cal_months_labels = ['January', 'February', 'March', 'April',
 var cal_days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 
-function getFirstWeek(startDay) {
-    if (startDay === 1) {
-        return []
-    }
-    if (startDay === 0) {
-        return [0, 0, 0, 0, 0, 0]
-    }
-    return _.map(_.range(startDay-1), function(){return 0});
-}
 
+
+function getFirstWeek(startDay) {
+    if (startDay === 0) {
+        return [0, 0, 0, 0, 0, 0, 1]
+    }
+    return (_.times(startDay - 1, function () {
+        return 0
+    })).concat(_.range(1, 8 - startDay + 1));
+}
 
 function generateMatrix(startDay, monthLength) {
-    var res = [];
-    res.push(getFirstWeek(startDay));
-
-    var days = _.range(1, monthLength + 1);
-    for (var week = 0; week < 6; week++) {
-        if (week > 0) {
-            res.push([])
-        }
-        while (res[week].length < 7 && days.length > 0) {
-            res[week].push(days.shift())
-        }
-    }
-    return res
+    var firstWeek = getFirstWeek(startDay);
+    var lastDayfirstWeek = firstWeek[firstWeek.length -1];
+    var month = _.map(_.range(lastDayfirstWeek, monthLength, 7),
+        function (i) {
+            var end = (i + 7 > monthLength + 1) ? monthLength + 1 : i + 7;
+            return _.range(i, end)
+        });
+    month.unshift(firstWeek);
+    return month
 }
+
+
 
 
 var Calendar = React.createClass({
@@ -105,10 +103,10 @@ var Calendar = React.createClass({
                     />
                 <table className="datetime__table">
                     <thead>
-                        {this.renderTableHeader()}
+                    {this.renderTableHeader()}
                     </thead>
                     <tbody>
-                        {this.renderTableBody(startDay, monthLength)}
+                    {this.renderTableBody(startDay, monthLength)}
                     </tbody>
                 </table>
             </div>
